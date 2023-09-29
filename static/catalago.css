@@ -1,0 +1,137 @@
+/* Estilo para o título "Buscar Livros" */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px; /* Tamanho da fonte maior */
+    color: #1e1f20; /* Cor do título */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* Estilo para o formulário de busca */
+#searchForm {
+    text-align: center;
+    margin: 20px auto;
+    z-index: 1;
+}
+
+#searchInput {
+    padding: 10px;
+    font-size: 16px;
+    z-index: 1;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Estilos personalizados para os cards */
+.result-item {
+    width: 300px; /* Largura padrão dos cards */
+    height: 400px; /* Altura padrão dos cards */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s;
+    overflow-y: auto;
+    display: inline-block; /* Alterado para inline-block */
+    vertical-align: top; /* Alinha os cards ao topo */
+    box-sizing: border-box; /* Evita problemas de margem */
+}
+
+/* Estilos para a imagem dentro do card */
+.result-item img {
+    max-width: 100%; /* Ajusta a largura da imagem para caber no card */
+    max-height: 180px;
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+    display: block; /* Remove margens verticais indesejadas */
+}
+
+.result-item h2 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.result-item p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Estilos personalizados para o side menu */
+.side-menu {
+    width: 250px; /* Largura do menu */
+    height: 100%; /* Altura total da janela */
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente oculto */
+    background-color: #007bff; /* Cor de fundo do menu */
+    overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
+    transition: left 0.3s ease-in-out; /* Transição suave para o efeito de deslizamento */
+    padding-top: 60px; /* Espaçamento superior para evitar sobreposição com o cabeçalho */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    color: #ffffff; /* Cor do texto no menu */
+    z-index: 3;
+}
+
+.side-menu h2 {
+    text-align: center;
+}
+
+.side-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #fff; /* Linha divisória entre os itens do menu */
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: color 0.2s;
+    font-size: 18px; /* Tamanho da fonte dos itens do menu */
+}
+
+.side-menu a:hover {
+    color: #ffcc00; /* Cor de destaque ao passar o mouse */
+}
+
+/* Estilo para o botão de mostrar/ocultar o menu */
+.show-menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1; /* Coloca o botão acima do menu */
+    background-color: #007bff; /* Cor de fundo do botão */
+    padding: 5px;
+    border-radius: 10%; /* Círculo */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    color: #161414; /* Cor do ícone do botão */
+    font-size: 23px; /* Tamanho do ícone do botão */
+    text-align: center;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+}
+
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Catalago</title>
+    <link rel="stylesheet" href="../static/catalago.css">
+    <!-- Adicione o link para a biblioteca FontAwesome se necessário -->
+</head>
+<body>
+    <!-- Side Menu -->
+    <nav class="side-menu">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="/catalago">Início</a></li>
+            <li><a href="/perfil">Minha Conta</a></li>
+            <li><a href="/signin">Sair</a></li>
+        </ul>
+    </nav>
+
+    <!-- Botão para mostrar/ocultar o menu -->
+    <div class="show-menu-button">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <h1>Buscar Livros</h1>
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Buscar por livros ou autores">
+        <button type="submit">Pesquisar</button>
+    </form>
+    <div id="searchResults" class="results-container">
+        <!-- Os resultados da pesquisa serão exibidos aqui -->
+    </div>
+
+    <h2>Livros Recomendados</h2>
+    <div id="recommendedBooks" class="results-container">
+        <!-- Livros recomendados serão exibidos aqui -->
+    </div>
+
+    <script type="text/javascript">
+         google.books.load({"language": "pt-BR"});
+      </script>
+    
+    <script>
+         // JavaScript para mostrar/ocultar o menu
+         var menuVisible = false;
+         var sideMenu = document.querySelector('.side-menu');
+         var showMenuButton = document.querySelector('.show-menu-button');
+
+         showMenuButton.addEventListener('click', function () {
+             if (menuVisible) {
+                 sideMenu.style.left = '-250px';
+             } else {
+                 sideMenu.style.left = '0';
+             }
+             menuVisible = !menuVisible;
+         });
+
+         // Função para buscar livros recomendados da API
+         function fetchRecommendedBooks() {
+             var apiKey = "AIzaSyBk4d0po1SR9dmPxo9ZTU4Mn7xYh0ilqnc"; // Substitua pela sua chave de API
+             var apiUrl = "https://www.googleapis.com/books/v1/volumes?q=recommended&maxResults=5&key=" + apiKey;
+
+             fetch(apiUrl)
+                 .then(function (response) {
+                     return response.json();
+                 })
+                 .then(function (data) {
+                     displayRecommendedBooks(data);
+                 })
+                 .catch(function (error) {
+                     console.log("Erro ao buscar livros recomendados:", error);
+                 });
+         }
+
+         // Função para exibir livros recomendados
+         function displayRecommendedBooks(data) {
+             var recommendedBooksContainer = document.getElementById("recommendedBooks");
+             recommendedBooksContainer.innerHTML = ""; // Limpa os resultados anteriores
+
+             if (data.items) {
+                 data.items.forEach(function (item) {
+                     var title = item.volumeInfo.title;
+                     var authors = item.volumeInfo.authors ? item.volumeInfo.authors.join(", ") : "Autor desconhecido";
+                     var description = item.volumeInfo.description ? item.volumeInfo.description : "Descrição indisponível";
+                     var thumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "";
+
+                     var resultItem = document.createElement("div");
+                     resultItem.className = "result-item";
+
+                     // Conteúdo do card com a capa, título e descrição
+                     var content = `
+                         <img src="${thumbnail}" alt="Capa do Livro">
+                         <h2>${title}</h2>
+                         <p>Autor(es): ${authors}</p>
+                         <p>${description}</p>
+                     `;
+
+                     resultItem.innerHTML = content;
+                     recommendedBooksContainer.appendChild(resultItem);
+                 });
+             } else {
+                 recommendedBooksContainer.innerHTML = "Nenhum livro recomendado encontrado.";
+             }
+         }
+
+         // Chama a função para buscar livros recomendados ao iniciar a página
+         window.addEventListener("load", function () {
+             fetchRecommendedBooks();
+         });
+
+         document.getElementById("searchForm").addEventListener("submit", function (e) {
+             e.preventDefault(); // Impede o envio do formulário
+
+             var searchTerm = document.getElementById("searchInput").value;
+
+             // Chame a função para buscar livros
+             searchBooks(searchTerm);
+         });
+
+         function searchBooks(query) {
+             var apiKey = "AIzaSyBk4d0po1SR9dmPxo9ZTU4Mn7xYh0ilqnc"; // Substitua pela sua chave de API
+             var apiUrl = "https://www.googleapis.com/books/v1/volumes?q=" + encodeURIComponent(query) + "&download=epub&key=" + apiKey;
+
+             fetch(apiUrl)
+                 .then(function (response) {
+                     return response.json();
+                 })
+                 .then(function (data) {
+                     displaySearchResults(data);
+                 })
+                 .catch(function (error) {
+                     console.log("Erro na busca:", error);
+                 });
+         }
+
+         function displaySearchResults(data) {
+             var resultsContainer = document.getElementById("searchResults");
+             resultsContainer.innerHTML = ""; // Limpa os resultados anteriores
+
+             if (data.items) {
+                 data.items.forEach(function (item) {
+                     var title = item.volumeInfo.title;
+                     var authors = item.volumeInfo.authors ? item.volumeInfo.authors.join(", ") : "Autor desconhecido";
+                     var description = item.volumeInfo.description ? item.volumeInfo.description : "Descrição indisponível";
+                     var thumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "";
+
+                     var resultItem = document.createElement("div");
+                     resultItem.className = "result-item";
+
+                     // Conteúdo do card com a capa, título e descrição
+                     var content = `
+                         <img src="${thumbnail}" alt="Capa do Livro">
+                         <h2>${title}</h2>
+                         <p>Autor(es): ${authors}</p>
+                         <p>${description}</p>
+                     `;
+
+                     resultItem.innerHTML = content;
+                     resultsContainer.appendChild(resultItem);
+                 });
+             } else {
+                 resultsContainer.innerHTML = "Nenhum resultado encontrado.";
+             }
+         
+            }
+    </script>
+</body>
+</html>

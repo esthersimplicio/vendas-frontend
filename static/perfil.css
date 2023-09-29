@@ -1,0 +1,111 @@
+/* Estilo para o cabeçalho */
+header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Estilo para a seção de informações da conta */
+.user-info {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo para campos de formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 12px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px; /* Adicione bordas arredondadas */
+    margin-top: -52px; /* Valor negativo para mover para cima */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.botao-voltar {
+    padding: 10px 20px;
+    font-size: 13px;
+    background-color: #2d2f31;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px; /* Adicione bordas arredondadas */
+    float: right;
+    margin-top: -52px; /* Valor negativo para mover para cima */
+}
+
+/* Adicione estilos personalizados ao botão Excluir Conta */
+.delete-button {
+    background-color: #ff0000; /* Cor de fundo vermelha */
+    color: #fff; /* Cor do texto branca */
+    padding: 10px 20px; /* Preenchimento interno do botão */
+    font-size: 12px; /* Tamanho da fonte */
+    border: none; /* Remova a borda do botão */
+    cursor: pointer; /* Altere o cursor ao passar o mouse sobre o botão */
+    border-radius: 4px; /* Adicione bordas arredondadas */
+    margin-top: -52px; /* Valor negativo para mover para cima */
+    
+    
+}
+
+/* Estilo quando o cursor passar sobre o botão */
+.delete-button:hover {
+    background-color: #ff3333; /* Altere a cor de fundo ao passar o mouse */
+}
+
+.success {
+    color: #28a745; /* Cor do texto de sucesso */
+    background-color: #d4edda; /* Cor de fundo de sucesso */
+    border-color: #c3e6cb; /* Cor da borda de sucesso */
+}
+
+/* Estilos para mensagens de erro */
+.danger {
+    color: #721c24; /* Cor do texto de erro */
+    background-color: #f8d7da; /* Cor de fundo de erro */
+    border-color: #f5c6cb; /* Cor da borda de erro */
+}

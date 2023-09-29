@@ -1,0 +1,83 @@
+/* Reset de estilos padrão para remover margens e preenchimentos */
+* {
+    margin: 7px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo de fundo para o corpo da página */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para o container principal */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o título do formulário */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo para os grupos de campos do formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Estilo para os rótulos dos campos */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo para os campos de entrada de texto e senha */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estilo para o botão de envio */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Estilo para o botão de envio quando o cursor está sobre ele */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.success {
+    color: #28a745; /* Cor do texto de sucesso */
+    background-color: #d4edda; /* Cor de fundo de sucesso */
+    border-color: #c3e6cb; /* Cor da borda de sucesso */
+}
+
+/* Estilos para mensagens de erro */
+.danger {
+    color: #721c24; /* Cor do texto de erro */
+    background-color: #f8d7da; /* Cor de fundo de erro */
+    border-color: #f5c6cb; /* Cor da borda de erro */
+}
